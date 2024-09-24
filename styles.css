@@ -1,0 +1,617 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  padding-top: 60px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: rgb(92,63,251);
+  background: radial-gradient(circle, rgba(92,63,251,1) 0%, rgba(186,72,249,1) 100%);
+  color: white;
+  text-shadow: 1px 1px 1px rgb(63, 9, 129);
+}
+
+.body-dark {
+  background: rgb(11,134,71);
+  background: radial-gradient(circle, rgba(11,134,71,1) 0%, rgba(20,94,125,1) 100%);
+  color: black;
+  text-shadow: 1px 1px 1px rgb(25, 113, 100);
+}
+
+.wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.main {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.game {
+  position: relative;
+}
+
+.game-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-field__row {
+  display: flex;
+}
+
+.game-field__item {
+  border: 0.5px solid rgb(91, 26, 171);
+  cursor: pointer;
+  background-color: rgb(255 255 255 / 38%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-field__item-dark {
+  border: 0.5px solid #226480;
+}
+
+.game-field__item-checked {
+  background-color: rgb(30 6 61);
+}
+
+.game-field__item-checked-dark {
+  background-color: #061925;
+}
+
+.game-field__item-easy {
+  width: 50px;
+  height: 50px;
+}
+
+.game-field__item-middle {
+  width: 35px;
+  height: 35px;
+}
+
+.game-field__item-difficult {
+  width: 25px;
+  height: 25px;
+}
+
+.level-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.level-button {
+  border: none;
+  background-color: #ba48f9;
+  color: inherit;
+  font-size: 18px;
+  width: 70px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.level-button-dark {
+  background-color: #226480;
+}
+
+.level-button:hover {
+  background-color: #8b11ce;
+  transition: 0.5s;
+}
+
+.level-button-dark:hover {
+  background-color: #06374c;
+  transition: 0.5s;
+}
+
+.level-button-active {
+  background-color: #8b11ce;
+  cursor: default;
+}
+
+.level-button-active-dark {
+  background-color: #06374c;
+}
+
+.game-buttons {
+  display: flex;
+  gap: 15px;
+  position: relative;
+}
+
+.game-button {
+  border: none;
+  background-color: #ba48f9;
+  color: inherit;
+  font-size: 18px;
+  width: 130px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.game-button-dark {
+  background-color: #226480;
+}
+
+.game-button:hover {
+  background-color: #8b11ce;
+  transition: 0.5s;
+}
+
+.game-button-dark:hover {
+  background-color: #06374c;
+  transition: 0.5s;
+}
+
+
+.clues-top {
+  display: flex;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.clues-top::after {
+  content: '';
+  position: absolute;
+  width: 130%;
+  height: 2px;
+  background-color: #ba48f9;
+  bottom: 10px;
+  right: 0px;
+}
+
+.clues-top-dark::after {
+  background-color: #226480;
+}
+
+.clue-top {
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.clue-top::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background-color: #bb48f99f;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.clue-top-dark::after {
+  background-color: #226480;
+}
+
+.clue-top-easy {
+  width: 51px;
+}
+
+.clue-top-middle {
+  width: 36px;
+}
+
+.clue-top-difficult {
+  width: 26px;
+}
+
+
+.clue-after::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 110%;
+  background-color: #ba48f9;
+  bottom: 0px;
+  left: -10px;
+}
+
+.clue-after-dark::after {
+  background-color: #226480;
+}
+
+.clues-left {
+  font-size: 13px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: -120px;
+}
+
+.clue-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.clue-left::after {
+  content: '';
+  position: absolute;
+  width: 40%;
+  background-color: #bb48f99f;
+  height: 1px;
+  right: 0;
+  bottom: 0;
+}
+
+.clue-left-dark::after {
+  background-color: #226480;
+}
+
+.clue-left-easy {
+  height: 49px;
+}
+
+.clue-left-middle {
+  height: 34px;
+}
+
+.clue-left-difficult {
+  height: 24px;
+}
+
+
+.nonograms-menu {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nonodrams-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 10px;
+}
+
+.nonogram-item {
+  position: relative;
+  transition: 0.5s;
+}
+
+.nonogram-item:hover {
+  color: #48056d;
+  cursor: pointer;
+  transition: 0.5s;
+  text-shadow: none;
+}
+
+.nonogram-item-dark:hover {
+  color: #4faad1;
+  transition: 0.5s;
+}
+
+.nonogram-item-active {
+  color: #48056d;
+  cursor: pointer;
+  transition: 0.5s;
+  text-shadow: none;
+  cursor:default;
+}
+
+.nonogram-item-active-dark {
+  color: #4faad1;
+}
+
+.nonogram-item-active:hover {
+  cursor:default;
+}
+
+.nonogram-item::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #ba48f9;
+  left: -20px;
+  bottom: -5px;
+  transition: 0.5s;
+}
+
+.nonogram-item-dark::after {
+  background-color: black;
+}
+
+.nonogram-item:hover:after {
+  background-color: #48056d;
+  transition: 0.5s;
+}
+
+.nonogram-item-dark:hover:after {
+  background-color: #4faad1;
+  transition: 0.5s;
+}
+
+.nonogram-item-active::after {
+  background-color: #48056d;
+  transition: 0.5s;
+}
+
+.nonogram-item-active-dark::after {
+  background-color: #4faad1;
+  transition: 0.5s;
+}
+
+.random-game {
+  align-self: center;
+  border: none;
+  background-color: #ba48f9;
+  color: inherit;
+  font-size: 18px;
+  width: 150px;
+  padding: 7px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.random-game-dark {
+  background-color: #226480;
+}
+
+.random-game:hover {
+  background-color: #8b11ce;
+  transition: 0.5s;
+}
+
+.random-game-dark:hover {
+  background-color: #06374c;
+  transition: 0.5s;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #a76fc586;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dark {
+  background-color: #3f96b586;
+}
+
+.modal__window {
+  background-color:#ba48f9;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__window-dark {
+  background-color: #226480;
+}
+
+.modal__button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.modal__button-dark {
+  background-color: #4faad1;
+}
+
+.modal__button:hover {
+  background-color: rgb(63, 9, 129);
+  color: inherit;
+  transition: 0.5s;
+}
+
+.modal__button-dark:hover {
+  background-color: #06374c;
+}
+
+.cross {
+  width: 100%;
+}
+
+.scores__wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #a76fc586;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scores__wrapper-dark {
+  background-color: #3f96b586;
+}
+
+.scores__window {
+  background-color:#ba48f9;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 300px;
+}
+
+.scores__window-dark {
+  background-color: #226480;
+}
+
+.scores__close {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.scores__close-dark {
+  background-color: #4faad1;
+}
+
+.scores__close:hover {
+  background-color: rgb(63, 9, 129);
+  color: inherit;
+  transition: 0.5s;
+}
+
+.scores__close-dark:hover {
+  background-color:#06374c;
+}
+
+.scores-button {
+  background-color: transparent;
+  padding-bottom: 50px;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.scores__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.scores__item {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  border-bottom: #9247bb 1px dotted;
+  padding-bottom: 2px;
+}
+
+.scores__item-dark {
+  border-bottom: #4faad1 1px dotted;
+}
+
+.themes__wrapper {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.theme {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.last-game {
+  width: 200px;
+}
+
+.note {
+  position: absolute;
+  color: rgb(208, 60, 60);
+  top: -25px;
+  left: 140px;
+}
+
+@media (max-width: 1370px) {
+  .nonograms-menu {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding-bottom: 60px;
+  }
+
+  .wrapper {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main {
+    width: 460px;
+  }
+
+  .game-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wrapper {
+    padding: 30px 20px;
+  }
+
+  .game-difficult {
+    align-self: flex-end;
+  }
+
+  .clues-top::after {
+    width: 115%;
+    height: 2px;
+  }
+
+  .clue-after::after {
+    height: 100%;
+  }
+
+  .clue-left {
+    gap: 5px;
+  }
+}
